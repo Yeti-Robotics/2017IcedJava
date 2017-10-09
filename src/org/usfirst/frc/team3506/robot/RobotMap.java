@@ -16,7 +16,10 @@ public class RobotMap {
 	public static final int CENTER_RIGHT_TALON = 4;
 	public static final int BACK_RIGHT_TALON =  5;
 	
-	
+	//Climber
+	public static final int CLIMBER1_TALON = 0;
+	public static final int CLIMBER2_TALON = 0;
+	public static final double CLIMBER_POWER = 1;
 	
 	//Joystick
 	public static final int LFFT_JOYSTICK_PORT = 0;

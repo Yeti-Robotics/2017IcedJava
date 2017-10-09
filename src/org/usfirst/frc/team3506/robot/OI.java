@@ -1,5 +1,10 @@
 package org.usfirst.frc.team3506.robot;
+import org.usfirst.frc.team3506.robot.commands.climber.ClimbDownCommand;
+import org.usfirst.frc.team3506.robot.commands.climber.ClimbUpCommand;
+
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import edu.wpi.first.wpilibj.command.Command;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -13,9 +18,18 @@ public class OI {
 		leftStick = new Joystick(RobotMap.LFFT_JOYSTICK_PORT);
 		rightStick = new Joystick(RobotMap.RIGHT_JOYSTICK_PORT);
 		shooterStick = new Joystick(RobotMap.SHOOTER_JOYSTICK_PORT);
+		
+		setButtonWhileHeld(leftStick, 2, new ClimbUpCommand());
+		setButtonWhileHeld(leftStick, 3, new ClimbDownCommand());
 	}
 	
+	private void setButtonWhenPressed(Joystick joystick, int button, Command command) {
+		new JoystickButton(joystick, button).whenPressed(command);
+	}
 	
+	private void setButtonWhileHeld(Joystick joystick, int button, Command command) {
+		new JoystickButton(joystick, button).whileHeld(command);
+	}
 	
 	public double getShooterY() {
 		if (!(shooterStick == null)) {

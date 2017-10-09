@@ -6,15 +6,17 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+
+import org.usfirst.frc.team3506.robot.subsystems.ClimberSubsystem;
 import org.usfirst.frc.team3506.robot.subsystems.DriveTrainSubsytem;
 
 
 public class Robot extends IterativeRobot {
 
-	public static DriveTrainSubsytem driveTrainSubsystem; 
+	public static DriveTrainSubsytem driveTrainSubsystem;
+	public static ClimberSubsystem climberSubsystem;
 	public static OI oi;
 	public static Command autonomousCommand;
-	public SendableChooser<Command> chooser = new SendableChooser<>();
 
 	/**
 	 * This function is run when the robot is first started up and should be
@@ -23,10 +25,8 @@ public class Robot extends IterativeRobot {
 	
 	public void robotInit() {
 		driveTrainSubsystem = new DriveTrainSubsytem();
+		climberSubsystem = new ClimberSubsystem();
 		oi = new OI();
-		//chooser.addDefault("Default A)uto", new ExampleCommand());
-		// chooser.addObject("My Auto", new MyAutoCommand());
-		//SmartDashboard.putData("Auto mode", chooser);
 	}
 
 	/**
@@ -57,8 +57,6 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousInit() {
-		autonomousCommand = chooser.getSelected();
-
 		/*
 		 * String autoSelected = SmartDashboard.getString("Auto Selector",
 		 * "Default"); switch(autoSelected) { case "My Auto": autonomousCommand
