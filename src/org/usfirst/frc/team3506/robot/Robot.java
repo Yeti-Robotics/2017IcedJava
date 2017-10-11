@@ -6,15 +6,16 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
-
 import org.usfirst.frc.team3506.robot.subsystems.ClimberSubsystem;
 import org.usfirst.frc.team3506.robot.subsystems.DriveTrainSubsytem;
+import org.usfirst.frc.team3506.robot.subsystems.IntakeSubsystem;
 
 
 public class Robot extends IterativeRobot {
 
 	public static DriveTrainSubsytem driveTrainSubsystem;
 	public static ClimberSubsystem climberSubsystem;
+	public static IntakeSubsystem intakeSubsystem;
 	public static OI oi;
 	public static Command autonomousCommand;
 
@@ -26,6 +27,7 @@ public class Robot extends IterativeRobot {
 	public void robotInit() {
 		driveTrainSubsystem = new DriveTrainSubsytem();
 		climberSubsystem = new ClimberSubsystem();
+		intakeSubsystem = new IntakeSubsystem();
 		oi = new OI();
 	}
 

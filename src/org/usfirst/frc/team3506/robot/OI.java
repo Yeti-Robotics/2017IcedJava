@@ -1,6 +1,8 @@
 package org.usfirst.frc.team3506.robot;
 import org.usfirst.frc.team3506.robot.commands.climber.ClimbDownCommand;
 import org.usfirst.frc.team3506.robot.commands.climber.ClimbUpCommand;
+import org.usfirst.frc.team3506.robot.commands.intake.ForwardIntake;
+import org.usfirst.frc.team3506.robot.commands.intake.ReverseIntake;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -20,7 +22,10 @@ public class OI {
 		shooterStick = new Joystick(RobotMap.SHOOTER_JOYSTICK_PORT);
 		
 		setButtonWhileHeld(leftStick, 2, new ClimbUpCommand());
-		setButtonWhileHeld(leftStick, 3, new ClimbDownCommand());
+		setButtonWhileHeld(rightStick, 5, new ForwardIntake());
+		setButtonWhileHeld(rightStick, 6, new ReverseIntake());
+		//no climb down command on request of robbie claims somehow will break the cimber 
+		//setButtonWhileHeld(leftStick, 3, new ClimbDownCommand());
 	}
 	
 	private void setButtonWhenPressed(Joystick joystick, int button, Command command) {

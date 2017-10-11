@@ -21,6 +21,10 @@ public class RobotMap {
 	public static final int CLIMBER2_TALON = 0;
 	public static final double CLIMBER_POWER = 1;
 	
+	//Intake
+	public static final int INTAKE_TALON = 6;
+	public static final double INTAKE_SPEED = 1.0;
+	
 	//Joystick
 	public static final int LFFT_JOYSTICK_PORT = 0;
 	public static final int RIGHT_JOYSTICK_PORT = 1;
