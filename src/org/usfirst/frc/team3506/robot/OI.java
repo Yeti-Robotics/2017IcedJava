@@ -1,6 +1,8 @@
 package org.usfirst.frc.team3506.robot;
 import org.usfirst.frc.team3506.robot.commands.climber.ClimbDownCommand;
 import org.usfirst.frc.team3506.robot.commands.climber.ClimbUpCommand;
+import org.usfirst.frc.team3506.robot.commands.gearOut.ContractGearOut;
+import org.usfirst.frc.team3506.robot.commands.gearOut.ExtendGearOutCommand;
 import org.usfirst.frc.team3506.robot.commands.intake.ForwardIntake;
 import org.usfirst.frc.team3506.robot.commands.intake.ReverseIntake;
 
@@ -22,8 +24,10 @@ public class OI {
 		shooterStick = new Joystick(RobotMap.SHOOTER_JOYSTICK_PORT);
 		
 		setButtonWhileHeld(leftStick, 2, new ClimbUpCommand());
-		setButtonWhileHeld(rightStick, 5, new ForwardIntake());
-		setButtonWhileHeld(rightStick, 6, new ReverseIntake());
+		setButtonWhileHeld(rightStick, 3, new ForwardIntake());
+		setButtonWhileHeld(rightStick, 2, new ReverseIntake());
+		setButtonWhenPressed(rightStick, 6, new ExtendGearOutCommand());
+		setButtonWhenPressed(rightStick, 7, new ContractGearOut());
 		//no climb down command on request of robbie claims somehow will break the cimber 
 		//setButtonWhileHeld(leftStick, 3, new ClimbDownCommand());
 	}

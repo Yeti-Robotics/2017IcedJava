@@ -15,11 +15,13 @@ public class RobotMap {
 	public static final int FRONT_RIGHT_TALON = 3;
 	public static final int CENTER_RIGHT_TALON = 4;
 	public static final int BACK_RIGHT_TALON =  5;
+	public static final double DRIVE_FORWARD_POWER_AUTO = 0.5;
+	public static final double DRIVE_FORWARD_TIME_AUTO = 1.0; //In Seconds
 	
 	//Climber
-	public static final int CLIMBER1_TALON = 0;
-	public static final int CLIMBER2_TALON = 0;
-	public static final double CLIMBER_POWER = 1;
+	public static final int CLIMBER1_TALON = 7;
+	public static final int CLIMBER2_TALON = 8;
+	public static final double CLIMBER_POWER = 1.0;
 	
 	//Intake
 	public static final int INTAKE_TALON = 6;
@@ -30,4 +32,7 @@ public class RobotMap {
 	public static final int RIGHT_JOYSTICK_PORT = 1;
 	public static final int SHOOTER_JOYSTICK_PORT = 2;
 	public static final double JOYSTICK_DEADZONE = .15;
+	
+	//Gear Out 
+	public static final int [] GEAR_PICKER_SOLENOID =  new int[] { 2, 3 };
 }

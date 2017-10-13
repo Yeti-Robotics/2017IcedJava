@@ -6,8 +6,11 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+
+import org.usfirst.frc.team3506.robot.commands.autonomous.DriveForwardAutonomous;
 import org.usfirst.frc.team3506.robot.subsystems.ClimberSubsystem;
 import org.usfirst.frc.team3506.robot.subsystems.DriveTrainSubsytem;
+import org.usfirst.frc.team3506.robot.subsystems.GearOutSubsystem;
 import org.usfirst.frc.team3506.robot.subsystems.IntakeSubsystem;
 
 
@@ -16,6 +19,7 @@ public class Robot extends IterativeRobot {
 	public static DriveTrainSubsytem driveTrainSubsystem;
 	public static ClimberSubsystem climberSubsystem;
 	public static IntakeSubsystem intakeSubsystem;
+	public static GearOutSubsystem gearOutSubsystem;
 	public static OI oi;
 	public static Command autonomousCommand;
 
@@ -28,7 +32,9 @@ public class Robot extends IterativeRobot {
 		driveTrainSubsystem = new DriveTrainSubsytem();
 		climberSubsystem = new ClimberSubsystem();
 		intakeSubsystem = new IntakeSubsystem();
+		gearOutSubsystem = new GearOutSubsystem();
 		oi = new OI();
+		autonomousCommand = new DriveForwardAutonomous();
 	}
 
 	/**
@@ -59,6 +65,7 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousInit() {
+		autonomousCommand = new DriveForwardAutonomous();
 		/*
 		 * String autoSelected = SmartDashboard.getString("Auto Selector",
 		 * "Default"); switch(autoSelected) { case "My Auto": autonomousCommand
